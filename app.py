@@ -403,18 +403,6 @@ def leaderboard():
         Team=Team
     )
 
-@app.route("/delete_all_users")
-def delete_all_users():
-
-    User.query.delete()
-
-    db.session.commit()
-
-    return "All users deleted successfully"
-
-
-
-
 # ==========================
 # Run Application
 # ==========================
