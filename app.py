@@ -45,49 +45,6 @@ def home():
         "home.html"
     )
 
-@app.route("/create_teams")
-def create_teams():
-
-    team_names = [
-        "Team Naveen",
-        "Team Shalini",
-        "Team Ashitha",
-        "Team Rakesh Hariprasad",
-        "Team Anirban",
-        "Team Vidhya Seetharaman",
-        "Team Aftab",
-        "Team Prasad",
-        "Team Asma",
-        "Team Salma"
-    ]
-
-    created = 0
-
-    for name in team_names:
-
-        existing = Team.query.filter_by(
-            team_name=name
-        ).first()
-
-        if not existing:
-
-            team = Team(team_name=name)
-
-            db.session.add(team)
-            db.session.flush()
-
-            forest = Forest(
-                team_id=team.id
-            )
-
-            db.session.add(forest)
-
-            created += 1
-
-    db.session.commit()
-
-    return f"{created} teams created"
-
 
 @app.route(
     "/register",
