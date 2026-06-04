@@ -240,7 +240,7 @@ def forest(team_id):
         )
 
         if time_passed >= timedelta(
-            seconds=30
+            minutes=10
         ):
 
             user.water_bucket = 1
@@ -250,7 +250,7 @@ def forest(team_id):
         else:
 
             remaining_seconds = (
-                30-
+                600-
                 int(
                     time_passed.total_seconds()
                 )
