@@ -29,7 +29,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
     "sqlite:///environment.db"
 )
 db.init_app(app)
-
+with app.app_context():
+    db.create_all()
 
 # ==========================
 # Home Page
