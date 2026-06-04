@@ -65,24 +65,23 @@ def create_teams():
 
     for name in team_names:
 
-        existing = Team.query.filter_by(
+        team = Team(
             team_name=name
-        ).first()
+        )
 
-        if not existing:
+        db.session.add(team)
+        db.session.flush()
 
-            team = Team(team_name=name)
+        forest = Forest(
+            team_id=team.id,
+            water_count=0,
+            tree_count=0,
+            current_stage="Seed"
+        )
 
-            db.session.add(team)
-            db.session.flush()
+        db.session.add(forest)
 
-            forest = Forest(
-                team_id=team.id
-            )
-
-            db.session.add(forest)
-
-            created += 1
+        created += 1
 
     db.session.commit()
 
