@@ -358,6 +358,19 @@ def leaderboard():
         Team=Team
     )
 
+@app.route("/check_teams")
+def check_teams():
+
+    teams = Team.query.all()
+
+    result = ""
+
+    for team in teams:
+        result += team.team_name + "<br>"
+
+    return result
+
+
 
 
 
