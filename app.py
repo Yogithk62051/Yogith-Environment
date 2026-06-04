@@ -364,7 +364,6 @@ def leaderboard():
 def create_teams():
 
     team_names = [
-
         "Team Naveen",
         "Team Shalini",
         "Team Ashitha",
@@ -377,6 +376,8 @@ def create_teams():
         "Team Salma"
     ]
 
+    created = 0
+
     for name in team_names:
 
         existing = Team.query.filter_by(
@@ -385,12 +386,9 @@ def create_teams():
 
         if not existing:
 
-            team = Team(
-                team_name=name
-            )
+            team = Team(team_name=name)
 
             db.session.add(team)
-
             db.session.flush()
 
             forest = Forest(
@@ -399,24 +397,11 @@ def create_teams():
 
             db.session.add(forest)
 
+            created += 1
+
     db.session.commit()
 
-    return "Teams Created Successfully"
-
-@app.route("/check_teams")
-def check_teams():
-
-    teams = Team.query.all()
-
-    if len(teams) == 0:
-        return "NO TEAMS IN DATABASE"
-
-    output = ""
-
-    for team in teams:
-        output += team.team_name + "<br>"
-
-    return output
+    return f"{created} teams created"
 
 
 # ==========================
