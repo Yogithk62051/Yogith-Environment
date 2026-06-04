@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Team Forest</title>
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/forest.css') }}">
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/ecosystem.css') }}">
+```
+
+</head>
+
+<body>
+
+<div class="background">
+
+```
+<div class="overlay">
+
+    <!-- Header -->
+
+    <div class="header">
+
+        🌳 {{ team.team_name }} Forest
+
+    </div>
+
+    <!-- Ecosystem -->
+
+    <div id="ecosystem">
+
+        <!-- Sun -->
+
+        <div class="sun"></div>
+
+        <div class="sun-glow"></div>
+
+        <!-- Clouds -->
+
+        <div class="cloud cloud1"></div>
+
+        <div class="cloud cloud2"></div>
+
+        <!-- Mountains -->
+
+        <img
+        class="mountains"
+        src="{{ url_for(
+        'static',
+        filename='images/environment/mountains.png'
+        ) }}">
+
+        <!-- Forest Background -->
+
+        <img
+        class="forest-bg"
+        src="{{ url_for(
+        'static',
+        filename='images/environment/forest_bg.png'
+        ) }}">
+
+        <!-- Floating Leaves -->
+
+        <div class="leaf leaf1">🍃</div>
+
+        <div class="leaf leaf2">🍃</div>
+
+        <div class="leaf leaf3">🍃</div>
+
+        <div class="leaf leaf4">🍃</div>
+
+        <!-- Tree Image -->
+
+        <div id="tree-area">
+
+            <img
+            id="tree-image"
+            src="{{ url_for(
+            'static',
+            filename='images/tree_stages/' + tree_image
+            ) }}"
+            alt="Tree Stage">
+
+        </div>
+
+        <!-- Grass -->
+
+
+    </div>
+
+    <!-- Current Stage -->
+
+    <div class="stage">
+
+        🌱 Current Stage :
+        {{ forest.current_stage }}
+
+    </div>
+
+    <!-- Progress -->
+
+    <div class="progress-container">
+
+        <div
+        class="progress-bar"
+        style="width:{{ (forest.water_count / 8) * 100 }}%;">
+
+        </div>
+
+    </div>
+
+    <!-- Statistics -->
+
+    <div class="stats">
+
+        <div>
+
+            💧 Water :
+            {{ forest.water_count }}
+
+        </div>
+
+        <div>
+
+            🌳 Trees :
+            {{ forest.tree_count }}
+
+        </div>
+
+    </div>
+
+    <!-- Forest History -->
+
+    <div class="forest-grid">
+
+        {% for i in range(forest.tree_count) %}
+
+            🌳
+
+        {% endfor %}
+
+    </div>
+
+    <!-- Bucket Status -->
+
+    <div class="bucket-status">
+
+        {% if user.water_bucket == 1 %}
+
+            <span id="bucketText">
+
+                ✅ Bucket Ready
+
+            </span>
+
+        {% else %}
+
+            <span id="bucketText">
+
+                ⏳ Refill in
+
+                <span id="countdown">
+
+                    {{ remaining_seconds }}
+
+                </span>
+
+                sec
+
+            </span>
+
+        {% endif %}
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="action-buttons">
+
+        <a href="/leaderboard">
+
+            <button
+            type="button"
+            class="leaderboard-btn">
+
+                🏆 Leaderboard
+
+            </button>
+
+        </a>
+
+        <a href="/team_forest/{{ team.id }}">
+
+            <button
+            type="button"
+            class="forest-btn">
+
+                🌳 View Team Forest
+
+            </button>
+
+        </a>
+
+        <form
+        action="/water/{{ team.id }}"
+        method="POST">
+
+            <button
+            class="water-btn"
+            type="submit">
+
+                💧 Nourish Our Tree
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Team Members -->
+
+    <div class="members-section">
+
+        {% for member in team.users %}
+
+            <div class="member">
+
+                👤 {{ member.name }}
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<!-- Countdown Timer -->
+
+<script>
+
+let countdownElement =
+document.getElementById(
+"countdown"
+);
+
+if(countdownElement){
+
+    let seconds =
+    parseInt(
+        countdownElement.innerText
+    );
+
+    let timer =
+    setInterval(function(){
+
+        seconds--;
+
+        countdownElement.innerText =
+        seconds;
+
+        if(seconds <= 0){
+
+            clearInterval(timer);
+
+            document.getElementById(
+            "bucketText"
+            ).innerHTML =
+            "✅ Bucket Ready";
+
+            location.reload();
+
+        }
+
+    },1000);
+
+}
+
+</script>
+
+</body>
+
+</html>

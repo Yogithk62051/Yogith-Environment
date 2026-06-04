@@ -1,0 +1,169 @@
+/* ==========================
+   PAGE
+========================== */
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+    #C8E6C9,
+    #81C784
+    );
+
+    font-family:Arial,sans-serif;
+
+    overflow-x:hidden;
+}
+
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+
+    padding:40px;
+}
+
+
+/* ==========================
+   TITLE
+========================== */
+
+h1{
+
+    color:#1B5E20;
+
+    font-size:50px;
+
+    text-align:center;
+
+    margin-bottom:10px;
+}
+
+h2{
+
+    color:#2E7D32;
+
+    text-align:center;
+
+    margin-bottom:40px;
+}
+
+
+/* ==========================
+   BACK BUTTON
+========================== */
+
+.back-btn{
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:white;
+
+    text-decoration:none;
+
+    color:black;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 4px 10px rgba(0,0,0,.2);
+}
+
+
+/* ==========================
+   FOREST AREA
+========================== */
+
+.forest-area{
+
+    width:100%;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:30px;
+
+    padding-top:40px;
+
+    padding-left:30px;
+
+    padding-right:30px;
+}
+
+
+/* ==========================
+   TREE CARD
+========================== */
+
+.tree-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:120px;
+}
+
+
+/* ==========================
+   TREE IMAGE
+========================== */
+
+.forest-tree{
+
+    width:100px;
+
+    height:auto;
+
+    transition:0.3s;
+}
+
+.forest-tree:hover{
+
+    transform:scale(1.1);
+
+    cursor:pointer;
+}
+
+
+/* ==========================
+   TREE NAME
+========================== */
+
+.tree-name{
+
+    margin-top:8px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    color:#1B5E20;
+
+    text-align:center;
+}

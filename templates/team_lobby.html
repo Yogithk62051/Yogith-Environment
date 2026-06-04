@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Team Lobby</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    font-family:Arial,sans-serif;
+}
+
+.background{
+
+    width:100%;
+    height:100%;
+
+    background-image:url("{{ url_for('static', filename='images/Tree.png') }}");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    position:relative;
+}
+
+.overlay{
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.25);
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.team-name{
+
+    color:white;
+
+    font-size:60px;
+
+    font-weight:bold;
+
+    margin-bottom:50px;
+
+    text-shadow:3px 3px 10px black;
+}
+
+.members{
+
+    display:flex;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    width:80%;
+}
+
+.member{
+
+    background:rgba(255,255,255,0.85);
+
+    padding:15px 25px;
+
+    border-radius:25px;
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+.enter-btn{
+
+    margin-top:60px;
+
+    padding:20px 40px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2E7D32;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.enter-btn:hover{
+
+    transform:scale(1.08);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background">
+
+    <div class="overlay">
+
+        <div class="team-name">
+
+            🌳 {{ team.team_name }}
+
+        </div>
+
+        <div class="members">
+
+            {% for user in team.users %}
+
+                <div class="member">
+
+                    {{ user.name }}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+        <a href="/forest/{{ team.id }}">
+
+            <button class="enter-btn">
+
+                Enter Team Forest
+
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

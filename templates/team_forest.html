@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Team Forest</title>
+
+    <link
+    rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/team_forest.css'
+    ) }}">
+
+</head>
+
+<body>
+
+<a href="/forest/{{ team.id }}" class="back-btn">
+
+    ← Back
+
+</a>
+
+<div class="forest-area">
+
+    {% for tree in trees %}
+
+    <div class="tree-card">
+
+        <img
+        class="forest-tree"
+        src="{{ url_for(
+        'static',
+        filename='images/tree_stages/' + tree.tree_image
+        ) }}">
+
+        <div class="tree-name">
+
+            {{ tree.user_name }}
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Registration</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            overflow:hidden;
+            font-family:Arial, sans-serif;
+        }
+
+        .hero{
+
+            width:100vw;
+            height:100vh;
+
+            background-image:url("{{ url_for('static', filename='images/home_image.png') }}");
+
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+        }
+
+        .overlay{
+
+            width:100%;
+            height:100%;
+
+            background:rgba(0,0,0,0.5);
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .register-card{
+
+            background:rgba(255,255,255,0.95);
+
+            padding:40px;
+
+            border-radius:15px;
+
+            width:450px;
+
+            text-align:center;
+
+            box-shadow:0px 0px 20px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            margin-bottom:25px;
+            color:#2E7D32;
+        }
+
+        input,
+        select{
+
+            width:100%;
+
+            padding:12px;
+
+            margin-bottom:15px;
+
+            border:1px solid #ccc;
+
+            border-radius:8px;
+
+            font-size:16px;
+        }
+
+        button{
+
+            width:100%;
+
+            padding:15px;
+
+            border:none;
+
+            border-radius:8px;
+
+            background:#2E7D32;
+
+            color:white;
+
+            font-size:18px;
+
+            cursor:pointer;
+        }
+
+        button:hover{
+
+            transform:scale(1.03);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="hero">
+
+    <div class="overlay">
+
+        <div class="register-card">
+
+            <h1>🌱 Registration</h1>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Your Email"
+                    required
+                >
+
+                <select name="team">
+
+                    <option value="Team Naveen">Team Naveen</option>
+                    <option value="Team Shalini">Team Shalini</option>
+                    <option value="Team Ashitha">Team Ashitha</option>
+                    <option value="Team Rakesh Hariprasad">Team Rakesh Hariprasad</option>
+                    <option value="Team Anirban">Team Anirban</option>
+                    <option value="Team Vidhya Seetharaman">Team Vidhya Seetharaman</option>
+                    <option value="Team Aftab">Team Aftab</option>
+                    <option value="Team Prasad">Team Prasad</option>
+                    <option value="Team Asma">Team Asma</option>
+                    <option value="Team Salma">Team Salma</option>
+
+                </select>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Create Password"
+                    required
+                >
+
+                <button type="submit">
+
+                    Register
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

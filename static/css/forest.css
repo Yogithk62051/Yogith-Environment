@@ -1,0 +1,503 @@
+html,
+body{
+
+    margin:0;
+
+    padding:0;
+
+    width:100%;
+
+    height:100%;
+
+    overflow-x:hidden;
+}
+
+/* ==========================
+   Global
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    background:white;
+
+    width:100vw;
+    height:100vh;
+
+    overflow-x:hidden;
+}
+
+/* ==========================
+   Main Layout
+========================== */
+
+.background{
+
+    width:100%;
+    min-height:100vh;
+
+    background:white;
+}
+
+.overlay{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}
+
+/* ==========================
+   Header
+========================== */
+
+.header{
+
+    margin-top:20px;
+
+    font-size:40px;
+
+    font-weight:bold;
+
+    color:#2E7D32;
+}
+
+/* ==========================
+   Tree Section
+========================== */
+
+.tree-section{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:20px;
+}
+
+.tree-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:450px;
+}
+
+/* ==========================
+   Realistic Tree Image
+========================== */
+
+.real-tree{
+
+    width:450px;
+
+    animation:treeGrow 1.2s ease;
+
+    transition:all 1s ease;
+}
+
+@keyframes treeGrow{
+
+    0%{
+
+        transform:scale(0.7);
+
+        opacity:0;
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+    }
+}
+
+/* ==========================
+   Water Animation
+========================== */
+
+.water-area{
+
+    position:absolute;
+
+    top:120px;
+}
+
+.drop{
+
+    width:12px;
+
+    height:18px;
+
+    background:#2196F3;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    opacity:0;
+}
+
+.drop1{
+
+    left:-20px;
+
+    animation:waterFall 2s infinite;
+}
+
+.drop2{
+
+    left:20px;
+
+    animation:waterFall 2s infinite .5s;
+}
+
+.drop3{
+
+    left:60px;
+
+    animation:waterFall 2s infinite 1s;
+}
+
+@keyframes waterFall{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:translateY(250px);
+
+        opacity:0;
+    }
+}
+
+/* ==========================
+   Stage
+========================== */
+
+.stage{
+
+    margin-top:15px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:#2E7D32;
+}
+
+/* ==========================
+   Progress Bar
+========================== */
+
+.progress-container{
+
+    width:600px;
+
+    height:25px;
+
+    background:#e0e0e0;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:20px;
+}
+
+.progress-bar{
+
+    height:100%;
+
+    background:#4CAF50;
+
+    transition:1s;
+}
+
+/* ==========================
+   Statistics
+========================== */
+
+.stats{
+
+    margin-top:20px;
+
+    display:flex;
+
+    gap:60px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#333;
+}
+
+/* ==========================
+   Forest Grid
+========================== */
+
+.forest-grid{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    font-size:40px;
+}
+
+
+/* ==========================
+   Bucket Status
+========================== */
+
+.bucket-status{
+
+    margin-top:20px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#2E7D32;
+}
+
+/* ==========================
+   Water Button
+========================== */
+
+.water-btn{
+
+    margin-top:25px;
+
+    padding:15px 40px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2E7D32;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.water-btn:hover{
+
+    transform:scale(1.05);
+
+    background:#1B5E20;
+}
+
+/* ==========================
+   Members Section
+========================== */
+
+.members-section{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:30px;
+
+    margin-bottom:25px;
+}
+
+.member{
+
+    background:#F5F5F5;
+
+    padding:12px 20px;
+
+    border-radius:20px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.action-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:35px;
+
+    margin-top:30px;
+
+    margin-bottom:30px;
+}
+
+/* Premium Forest Button */
+
+.forest-btn{
+
+    padding:18px 35px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2E7D32,
+        #4CAF50
+    );
+
+    box-shadow:
+    0 8px 20px
+    rgba(46,125,50,.25);
+
+    transition:all .3s ease;
+}
+
+.forest-btn:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 12px 25px
+    rgba(46,125,50,.35);
+}
+
+/* Upgrade Water Button */
+
+.water-btn{
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #1976D2,
+        #42A5F5
+    );
+
+    box-shadow:
+    0 8px 20px
+    rgba(25,118,210,.25);
+
+    transition:all .3s ease;
+}
+
+.water-btn:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 12px 25px
+    rgba(25,118,210,.35);
+}
+
+.leaderboard-btn{
+
+    padding:18px 35px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #FF9800,
+        #FFC107
+    );
+
+    box-shadow:
+    0 8px 20px
+    rgba(255,152,0,.25);
+
+    transition:.3s;
+}
+
+.leaderboard-btn:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 12px 25px
+    rgba(255,152,0,.35);
+}
