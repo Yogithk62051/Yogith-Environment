@@ -370,6 +370,49 @@ def check_teams():
 
     return result
 
+@app.route("/create_teams")
+def create_teams():
+
+    team_names = [
+
+        "Team Naveen",
+        "Team Shalini",
+        "Team Ashitha",
+        "Team Rakesh Hariprasad",
+        "Team Anirban",
+        "Team Vidhya Seetharaman",
+        "Team Aftab",
+        "Team Prasad",
+        "Team Asma",
+        "Team Salma"
+    ]
+
+    for name in team_names:
+
+        existing = Team.query.filter_by(
+            team_name=name
+        ).first()
+
+        if not existing:
+
+            team = Team(
+                team_name=name
+            )
+
+            db.session.add(team)
+
+            db.session.flush()
+
+            forest = Forest(
+                team_id=team.id
+            )
+
+            db.session.add(forest)
+
+    db.session.commit()
+
+    return "Teams Created Successfully"
+
 
 
 
