@@ -22,8 +22,10 @@ import os
 
 app = Flask(__name__)
 
-app.secret_key = "yogith_environment_secret"
-
+app.secret_key = os.getenv(
+    "SECRET_KEY",
+    "development_secret"
+)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
     "DATABASE_URL",
     "sqlite:///environment.db"
