@@ -402,6 +402,16 @@ def leaderboard():
         Team=Team
     )
 
+@app.route("/db_status")
+def db_status():
+
+    return f"""
+    Teams: {Team.query.count()} <br>
+    Users: {User.query.count()} <br>
+    Forests: {Forest.query.count()} <br>
+    Completed Trees: {CompletedTree.query.count()}
+    """
+
 # ==========================
 # Run Application
 # ==========================
