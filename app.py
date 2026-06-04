@@ -61,10 +61,12 @@ def register():
         password = request.form["password"]
 
         team_name = request.form["team"]
-
+        print("SELECTED TEAM:", team_name)
+        print("ALL TEAMS:", [t.team_name for t in Team.query.all()])
         team = Team.query.filter_by(
             team_name=team_name
         ).first()
+
 
         if not team:
 
