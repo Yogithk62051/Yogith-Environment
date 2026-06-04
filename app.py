@@ -358,18 +358,6 @@ def leaderboard():
         Team=Team
     )
 
-@app.route("/check_teams")
-def check_teams():
-
-    teams = Team.query.all()
-
-    result = ""
-
-    for team in teams:
-        result += team.team_name + "<br>"
-
-    return result
-
 @app.route("/create_teams")
 def create_teams():
 
@@ -413,9 +401,20 @@ def create_teams():
 
     return "Teams Created Successfully"
 
+@app.route("/check_teams")
+def check_teams():
 
+    teams = Team.query.all()
 
+    if len(teams) == 0:
+        return "NO TEAMS IN DATABASE"
 
+    output = ""
+
+    for team in teams:
+        output += team.team_name + "<br>"
+
+    return output
 
 
 # ==========================
